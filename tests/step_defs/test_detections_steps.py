@@ -24,9 +24,15 @@ def skip_detections(context, detections_number):
 # When Steps
 
 @when('I send a GET request with the number of detections to limit')
-def api_get_request(context):
+def api_get_request_limit(context):
     params = {'limit': context['detections_number']}
     response = requests.get(DETECTIONS_ENDPOINT, params=params, headers=get_authorization_headers())
+    context['response'] = response
+
+
+@when('I send a GET request to detections')
+def api_get_request(context):
+    response = requests.get(DETECTIONS_ENDPOINT, headers=get_authorization_headers())
     context['response'] = response
 
 

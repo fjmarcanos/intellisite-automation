@@ -34,19 +34,7 @@ def api_post_request(context):
 
 # Then Steps
 
-@then(parsers.parse('the response status code is "{code:d}"'))
-def api_response_code(context, code):
-    assert context['response'].status_code == code
-
-
-@then(parsers.parse('the response contains the field "{access_token}"'))
-def api_response_access_token(context, access_token):
-    response_json = context['response'].json()
-    assert access_token in response_json
-    assert response_json['access_token']
-
-
-@then(parsers.parse('the response does not contain the field "{access_token}"'))
+@then(parsers.parse('the response does not contain the property "{access_token}"'))
 def api_response_access_token(context, access_token):
     response_json = context['response'].json()
     assert access_token not in response_json
