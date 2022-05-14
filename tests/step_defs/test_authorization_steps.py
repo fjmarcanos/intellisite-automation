@@ -4,7 +4,7 @@ import requests
 from .conftest import INTELLISITE_BASE_URL
 from pytest_bdd import scenarios, when, parsers
 
-scenarios('../features/authentication.feature')
+scenarios('../features/authorization.feature')
 
 
 @pytest.fixture

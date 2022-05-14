@@ -29,3 +29,8 @@ Feature: User login
       | N/A      | pass1234 | 422         |
       | user     | N/A      | 422         |
       | N/A      | N/A      | 400         |
+
+  Scenario: Authenticated user refresh token
+    When I send a GET request to refresh token with an authenticated user
+    Then the response status code is "200"
+    And the response contains the property "access_token"

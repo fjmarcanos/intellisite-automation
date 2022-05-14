@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-from .conftest import LOGIN_ENDPOINT
+from .conftest import LOGIN_ENDPOINT, REFRESH_TOKEN_ENDPOINT, get_authorization_headers
 from pytest_bdd import scenarios, given, when, then, parsers
 
 
@@ -21,6 +21,12 @@ def context():
 def user_credentials(context, username, password):
     context['username'] = username if username != "N/A" else None
     context['password'] = password if password != "N/A" else None
+
+
+@when('I send a GET request to refresh token with an authenticated user')
+def api_get_request(context):
+    response = requests.get(REFRESH_TOKEN_ENDPOINT, headers=get_authorization_headers())
+    context['response'] = response
 
 
 # When Steps
