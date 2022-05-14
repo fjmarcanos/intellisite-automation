@@ -14,7 +14,6 @@ def context():
 
 # When Steps
 
-
 @when(parsers.parse('I send a "{http_verb}" request to the endpoint "{endpoint}"'))
 def api_request(context, http_verb, endpoint):
     url = INTELLISITE_BASE_URL + endpoint

@@ -38,7 +38,6 @@ def api_get_request(context):
 
 # Then Steps
 
-
 @then(parsers.parse('the number of detections is equal to "{detections_received:d}"'))
 def api_response_detections(context, detections_received):
     response_json = context['response'].json()
