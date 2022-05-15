@@ -7,6 +7,5 @@
     │   ├── step_defs           # Step definition modules for each feature
     │   │   ├── conftest.py     # Shared configuration and functions for all test suites
     │   ├── report.html         # Automated tests report
-    ├── docs                    # Documentation files
     ├── pytest.ini              # File for report generation
     └── README.md
